@@ -8,4 +8,4 @@ docs/.vitepress/cache/
 tmp/
 Thumbs.db
 Desktop.ini
-.vitepress/
+/.vitepress/
