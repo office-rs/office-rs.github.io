@@ -21,12 +21,12 @@ features:
   - icon: 📝
     title: rword · Editor
     details: OOXML (.docx) document editing library. Native via Vello+Parley+masonry/xilem, web via WASM+WebGPU — one core, two outputs.
-    link: /rword/intro
+    link: /en/rword/intro
     linkText: View rword →
   - icon: 📄
     title: rofd · Viewer + Annotation
     details: OFD (GB/T 33190) viewer and annotation editing library. Dual-target Rust native and WASM, rendered with WebGPU.
-    link: /rofd/intro
+    link: /en/rofd/intro
     linkText: View rofd →
   - icon: 🎨
     title: WebGPU rendering
