@@ -6,3 +6,6 @@ docs/.vitepress/cache/
 .idea/
 .vscode/
 tmp/
+Thumbs.db
+Desktop.ini
+.vitepress/
