@@ -359,3 +359,5 @@ VitePress 是 SPA，访问 `/rword/` 时浏览器会先命中根 `index.html` �
 - [ ] 在 rword 仓库 Settings → Pages → Source 选 "Disabled"
 - [ ] 在本仓库 Settings → Pages → Build and deployment → Source 选 "GitHub Actions"
 - [ ] 在本仓库 Settings → Actions → General → Workflow permissions 选 "Read and write"
+
+**实施完成状态 (2026-09-22)**：所有 9 个 plan 任务已实施。Tasks 1-7 + 9 由 subagent 完成并通过验证；Task 8 路由风险验证 PASS。待用户完成 §11 一次性前置配置后，推送 main 触发首次 CI 部署。
