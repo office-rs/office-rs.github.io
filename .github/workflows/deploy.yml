@@ -1,0 +1,103 @@
+name: Deploy Org Site
+
+# 构建 VitePress 站点 + 跨仓拉取 rword web-app dist + 部署到 GitHub Pages。
+# 部署 URL: https://office-rs.github.io/
+#
+# 触发:
+#   1. push 到 main (落地页文档变更)
+#   2. schedule 每 6 小时 (同步 rword 最新 dist)
+#   3. workflow_dispatch (手动 / 外部触发)
+#
+# 前置 (用户一次性手动配置):
+#   - 仓库 Settings → Pages → Source 选 "GitHub Actions"
+#   - 仓库 Settings → Actions → General → Workflow permissions 选 "Read and write"
+#   - 仓库 Secrets 新增 RWORD_REPO_TOKEN (fine-grained PAT, scope=office-rs/rword, Actions Read)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/deploy.yml'
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build VitePress
+        run: pnpm build
+
+      - name: Fetch rword web-app dist (cross-repo, private)
+        env:
+          GH_TOKEN: ${{ secrets.RWORD_REPO_TOKEN }}
+        run: |
+          set -euo pipefail
+          RUN_ID=$(gh run list \
+            --repo office-rs/rword \
+            --workflow=build-web-app.yml \
+            --status=success \
+            --limit=1 \
+            --json databaseId -q '.[0].databaseId')
+          if [ -z "${RUN_ID:-}" ]; then
+            echo "::warning::No successful rword build found; skipping rword demo"
+            exit 0
+          fi
+          echo "Fetching rword dist from run $RUN_ID"
+          gh run download "$RUN_ID" \
+            --repo office-rs/rword \
+            --name rword-web-app-dist \
+            --dir rword-dist-tmp
+
+      - name: Merge rword dist into VitePress output
+        run: |
+          set -euo pipefail
+          rm -rf docs/.vitepress/dist/rword
+          if [ -d rword-dist-tmp ]; then
+            mv rword-dist-tmp docs/.vitepress/dist/rword
+            echo "rword dist merged under /rword/"
+          else
+            echo "rword dist missing, /rword/ will 404 until next sync"
+          fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/.vitepress/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
