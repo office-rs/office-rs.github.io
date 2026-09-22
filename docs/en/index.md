@@ -4,7 +4,7 @@ layout: home
 hero:
   name: office-rs
   text: High-performance Rust Office component libraries
-  tagline: rword and rofd — pure-Rust implementations of OOXML/OFD. One core, two targets (native + WebAssembly/WebGPU).
+  tagline: An Office component library for upper-layer Office-type applications. Pure Rust, with native crate and JavaScript SDK dual-target access.
   actions:
     - theme: brand
       text: rword Live Demo

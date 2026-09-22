@@ -4,7 +4,7 @@ layout: home
 hero:
   name: office-rs
   text: Rust 高性能 Office 组件库
-  tagline: rword 与 rofd —— OOXML/OFD 的纯 Rust 实现，一份核心双端（原生 + WebAssembly/WebGPU）。
+  tagline: 面向上层 Office 类应用的 Office 组件库，纯 Rust 实现，提供 native crate 与 JavaScript SDK 双端接入。
   actions:
     - theme: brand
       text: rword Live Demo

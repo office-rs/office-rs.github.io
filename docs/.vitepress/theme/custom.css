@@ -1,6 +1,11 @@
 /* 防止 CJK 在字间断行：让 hero 标题只在空格处换行，
-   避免 "组件库" 被劈成 "组" + "件库" 这种难看的断行。 */
-.vp-hero-name {
+   避免 "组件库" 被劈成 "组" + "件库" 这种难看的断行。
+   word-break: keep-all 对 CJK 文本禁止字间断行，
+   仅在空格 / 标点处允许换行；overflow-wrap: normal
+   进一步禁止任意字符溢出时软换行。 */
+.VPHero .name,
+.VPHero .text,
+.VPHero .tagline {
   word-break: keep-all;
   overflow-wrap: normal;
 }
