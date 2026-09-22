@@ -1,4 +1,4 @@
-# Rword JS SDK 使用
+# rword JS SDK 使用
 
 `@office-rs/rword` 是 rword 的 Web 端 TypeScript SDK，基于 `wasm-pack --target web` 构建，通过 `fetch()` 加载 WASM，**无需 Vite WASM 插件**或特殊打包配置。
 

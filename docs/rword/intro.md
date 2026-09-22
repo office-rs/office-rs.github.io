@@ -1,8 +1,8 @@
-# Rword 简介
+# rword 简介
 
-Rword 是一个用 Rust 编写的 GPU 加速 OOXML (.docx) 文档**编辑库**。一份编辑核心同时运行在原生端（Vello + Parley + masonry/xilem）与浏览器端（WebAssembly + WebGPU），两端产出**完全相同的版式**。
+rword 是一个用 Rust 编写的 GPU 加速 OOXML (.docx) 文档**编辑库**。一份编辑核心同时运行在原生端（Vello + Parley + masonry/xilem）与浏览器端（WebAssembly + WebGPU），两端产出**完全相同的版式**。
 
-Rword 是**库**而非应用：对外暴露单一的 `WordComponent`——你可以把它当成一个富文本版的 `<textarea>`。宿主拥有窗口与消息循环并转发输入事件；Rword 负责文档状态、版式与渲染。
+rword 是**库**而非应用：对外暴露单一的 `WordComponent`——你可以把它当成一个富文本版的 `<textarea>`。宿主拥有窗口与消息循环并转发输入事件；rword 负责文档状态、版式与渲染。
 
 ## 核心能力
 
@@ -24,10 +24,6 @@ Rword 是**库**而非应用：对外暴露单一的 `WordComponent`——你可
 ## 浏览器要求
 
 <!--@include: ../shared/webgpu-requirement.md-->
-
-## 自托管响应头
-
-<!--@include: ../shared/coep-coop-headers.md-->
 
 ## 在线 Demo
 

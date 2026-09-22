@@ -3,15 +3,19 @@ layout: home
 
 hero:
   name: office-rs
-  text: Rust 文档处理库集合
+  text: Rust 高性能 Office 组件库
   tagline: rword 与 rofd —— OOXML/OFD 的纯 Rust 实现，一份核心双端（原生 + WebAssembly/WebGPU）。
   actions:
     - theme: brand
-      text: Rword 文档
-      link: /rword/intro
+      text: rword Live Demo
+      link: https://office-rs.github.io/rword/
+      target: _blank
+      rel: noreferrer
     - theme: alt
-      text: rofd 文档
-      link: /rofd/intro
+      text: rofd Live Demo
+      link: https://office-rs.github.io/rofd/
+      target: _blank
+      rel: noreferrer
 
 features:
   - icon: 📝
@@ -34,17 +38,6 @@ features:
     title: 桌面集成
     details: xilem-view 适配层把编辑器封装为 masonry Widget + xilem View，原生宿主只需一条 view 函数。
   - icon: ⚖️
-    title: GPL-3.0
-    details: 两库均以 GNU General Public License v3.0 发布，源码完整开放。
+    title: Apache 2.0
+    details: 两库均以 Apache License 2.0 发布，源码完整开放，允许商业闭源衍生。
 ---
-
-## 项目对比
-
-| 维度 | rword | rofd |
-|---|---|---|
-| 文档格式 | OOXML (.docx)，ISO/IEC 29500 | OFD (GB/T 33190) |
-| 角色 | 编辑器（读 + 写 + 编辑） | 视图 + 标注 |
-| Web SDK | `@office-rs/rword` | `@office-rs/rofd` |
-| 桌面适配 | `rword-xilem-view` | `rofd-native-view` |
-| 桌面预编译 | Tauri Windows 安装包 | Tauri Windows 安装包 |
-| 在线 Demo | [/rword/](https://office-rs.github.io/rword/) | [office-rs.github.io/rofd/](https://office-rs.github.io/rofd/) |

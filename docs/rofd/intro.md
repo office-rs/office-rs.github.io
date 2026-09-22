@@ -20,10 +20,6 @@ rofd 是一个用 Rust 编写的 OFD (GB/T 33190) **视图 + 标注**编辑库�
 
 <!--@include: ../shared/webgpu-requirement.md-->
 
-## 自托管响应头
-
-<!--@include: ../shared/coep-coop-headers.md-->
-
 ## 在线 Demo
 
 部署在 [office-rs.github.io/rofd/](https://office-rs.github.io/rofd/)（由 rofd 仓库独立维护）。

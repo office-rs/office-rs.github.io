@@ -13,14 +13,14 @@ export default defineConfig({
     siteTitle: 'office-rs',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Rword', link: '/rword/intro', activeMatch: '/rword/' },
+      { text: 'rword', link: '/rword/intro', activeMatch: '/rword/' },
       { text: 'rofd', link: '/rofd/intro', activeMatch: '/rofd/' },
       { text: 'GitHub', link: 'https://github.com/office-rs' }
     ],
     sidebar: {
       '/rword/': [
         {
-          text: 'Rword',
+          text: 'rword',
           items: [
             { text: '简介', link: '/rword/intro' },
             { text: 'JS SDK', link: '/rword/sdk' },
@@ -54,7 +54,7 @@ export default defineConfig({
       }
     },
     footer: {
-      message: 'Released under the GPL-3.0 License.'
+      message: 'Released under the Apache 2.0 License.'
     }
   }
 });

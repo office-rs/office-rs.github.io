@@ -1,4 +1,4 @@
-# Rword xilem-view 使用
+# rword xilem-view 使用
 
 `rword-xilem-view` 把 rword 编辑器封装为 masonry `Widget` + xilem `View`，原生宿主只需一条 view 函数即可集成。
 
