@@ -328,6 +328,8 @@ VitePress 是 SPA，访问 `/rword/` 时浏览器会先命中根 `index.html` �
 
 实测浏览器访问 `/rword/` 是否加载 rword demo（非 SPA 路由），作为 spec 验证清单第一项。
 
+**验证结果 (2026-09-22)**：PASS — 本地 preview 实测，访问 /rword/ 直接加载 docs/.vitepress/dist/rword/index.html 静态文件，未触发 VitePress SPA 路由拦截。GitHub Pages 部署后行为预期一致。
+
 ### 8.2 npm 包可见性
 
 `@office-rs/rword` 与 `@office-rs/rofd` 的 npm 包是否公开？落地页 SDK 安装命令 `npm install @office-rs/rword` 需在实施时确认包是 public 还是 private（私有 npm scope 需配置 `.npmrc` 凭据，外部访问者无法直接 install）。
