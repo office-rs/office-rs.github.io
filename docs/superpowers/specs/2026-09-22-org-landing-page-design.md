@@ -208,6 +208,8 @@ jobs:
 
 仓库 Settings → Pages → Source 改为 **Disabled**（关闭 rword 自身的 Pages）。
 
+> **实施调整 (2026-09-22)**：rword 仓库实际落地为新建 `build-web-app.yml`（未重命名 `deploy-pages.yml`，旧文件已停用保留作历史）。触发源从 spec 原拟的 `push: branches:[main]` 改为 **`release: types: [published]`**——demo 产物仅在正式 release 时上传，org 页通过 schedule 6h 内同步。好处：demo 与 release 版本对齐，避免 main 中间态被发布。原 `workflow_dispatch` 保留作手动兜底。最终 YAML 见 rword 仓库 commit `3e9d2ed`。
+
 ### 7.3 本仓库 CI：deploy.yml
 
 单 workflow，三个触发源：push 到 main（落地页变更）、schedule（每 6 小时同步 rword 最新 dist）、workflow_dispatch（手动或外部触发）。
