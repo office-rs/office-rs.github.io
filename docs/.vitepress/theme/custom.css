@@ -1,0 +1,6 @@
+/* 防止 CJK 在字间断行：让 hero 标题只在空格处换行，
+   避免 "组件库" 被劈成 "组" + "件库" 这种难看的断行。 */
+.vp-hero-name {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
